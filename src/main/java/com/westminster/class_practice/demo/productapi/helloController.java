@@ -1,16 +1,32 @@
 package com.westminster.class_practice.demo.productapi;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class helloController {
 
-    @GetMapping("/api/product")
-    public String hello(){
-        return "hello world";
+    @GetMapping("/getAddress/{country}")
+    public String getAddress(@PathVariable  String country){
+        Address address = new Address(
+                1,
+                "Mony",
+                "Lalitpur",
+                ,
+                "Nepal");
+        return address.getFullAddress();
 
 
-//        oop code
-//        Product product = new Product(int)
     }
+
+    @GetMapping("/getperson")
+    public String getPerson() {
+        Person person = new Person(
+                1,
+                "Mony",
+                "2004");
+
+        return person.getAge();
+    }
+
 }
