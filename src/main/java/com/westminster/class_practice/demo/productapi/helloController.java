@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class helloController {
 
-    @GetMapping("/getAddress/{country}")
-    public String getAddress(@PathVariable  String country){
+    @GetMapping("/getAddress/{city}")
+    public String getAddress(@PathVariable  String city){
         Address address = new Address(
                 1,
                 "Mony",
                 "Lalitpur",
-                ,
+                "kupondole",
                 "Nepal");
         return address.getFullAddress();
 
@@ -26,7 +26,7 @@ public class helloController {
                 "Mony",
                 "2004");
 
-        return person.getAge();
+        return  person.getAge();
     }
 
 }

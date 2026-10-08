@@ -14,4 +14,29 @@ public class Product {
         this.inStock = inStock;
         this.price = price;
     }
+
+    public double calculateTotal(){
+    return calculateTotal();
+    }
+
+    public int getQty(){
+        return qty;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean getinStock() {
+        return inStock;
+    }
+
+    public double getprice() {
+        return price;
+    }
+
 }
