@@ -7,7 +7,10 @@ public class Product {
     private boolean inStock;
     private double price;
 
+    private static int instanceCount = 0;
+
     public Product(int id, String name, int qty, boolean inStock, double price){
+        instanceCount++;
         this.id = id;
         this.name = name;
         this.qty = qty;
@@ -15,28 +18,53 @@ public class Product {
         this.price = price;
     }
 
-    public double calculateTotal(){
-    return calculateTotal();
+    public double calculateTotal() {
+        return this.qty * this.price;
     }
 
+
     public int getQty(){
-        return qty;
+        return this.qty;
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public boolean getinStock() {
-        return inStock;
+        return this.inStock;
     }
 
     public double getprice() {
-        return price;
+        return this.price;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setQty(int qty) {
+        this.qty = qty;
+    }
+
+    public void setInStock(boolean inStock) {
+        this.inStock = inStock;
+    }
+
+    public void setUnitPrice(double price) {
+        this.price = price;
+    }
+
+    public static int getInstanceCount() {
+        return instanceCount;
     }
 
 }
