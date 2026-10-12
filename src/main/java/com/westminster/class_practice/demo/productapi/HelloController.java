@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class helloController {
+public class HelloController {
 
     @GetMapping("/getAddress/{city}")
     public String getAddress(@PathVariable  String city){
@@ -20,7 +20,7 @@ public class helloController {
     }
 
     @GetMapping("/getperson")
-    public String getPerson() {
+    public int getPerson() {
         Person person = new Person(
                 1,
                 "Mony",
@@ -30,3 +30,21 @@ public class helloController {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

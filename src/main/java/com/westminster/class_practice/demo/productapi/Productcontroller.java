@@ -47,19 +47,20 @@ public class Productcontroller{
     }
 
     @GetMapping("/all")
-    public Map<String, Object> all() {
+    public List<Product> all() {
         List<Product> productList = new ArrayList<>();
         int id = 123;
         for (int index = 0; index <= 4; index++) {
             id += index;
-            Product product = new Product(id + index, "Product-" + id, 20, id % 2 == 0, 199.99);
-            productList.add(product);
-        }
+            productList.add(new Product(id + index, "Product-" + id, 20, id % 2 == 0, 199.99));
 
-        return Map.of(
-                "Total Instance Count", Product.getInstanceCount(),
-                "Total Products", productList
-        );
+        }
+        return productList;
+
+//        return Map.of(
+//                "Total Instance Count", Product.getInstanceCount(),
+//                "Total Products", productList
+//        );
     }
 
 
