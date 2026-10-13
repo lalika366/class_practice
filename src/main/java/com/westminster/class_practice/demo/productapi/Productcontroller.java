@@ -1,10 +1,6 @@
 package com.westminster.class_practice.demo.productapi;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 import java.util.ArrayList;
@@ -14,16 +10,28 @@ import java.util.Map;
 @RestController
 @RequestMapping("/Products")
 public class Productcontroller{
-    @GetMapping("/{id}")
-    public Product getById(@PathVariable int id){
-        return new Product(
-                id,
-                "Mouse",
-                10,
-                true ,
-                 30
-        );
 
+    private final ProductService productService;
+
+    public Productcontroller(ProductService productService) {
+        this.productService = productService;
+    }
+
+
+    @GetMapping("/")
+    public List<Product> all() {
+        return productService.getAllProducts();
+    }
+
+    @GetMapping("/{id}")
+    public Product getById(@PathVariable int id) {
+        return productService.getProductById(id)
+                .orElse(null); // Lecture 6
+    }
+
+    @PostMapping("/")
+    public Product add(@RequestBody Product product) {
+        return productService.addProduct(product);
     }
 
     @GetMapping("/all-single")
@@ -46,22 +54,6 @@ public class Productcontroller{
         );
     }
 
-    @GetMapping("/all")
-    public List<Product> all() {
-        List<Product> productList = new ArrayList<>();
-        int id = 123;
-        for (int index = 0; index <= 4; index++) {
-            id += index;
-            productList.add(new Product(id + index, "Product-" + id, 20, id % 2 == 0, 199.99));
-
-        }
-        return productList;
-
-//        return Map.of(
-//                "Total Instance Count", Product.getInstanceCount(),
-//                "Total Products", productList
-//        );
-    }
 
 
 }
