@@ -15,6 +15,7 @@ class PhysicalProduct {
 - weightKg : double
 - dimensions : String
 + getWeightKg() : double
+
 }
 ' <|-- is the inheritance arrow. The PARENT goes on the left.
 Product <|-- DigitalProduct

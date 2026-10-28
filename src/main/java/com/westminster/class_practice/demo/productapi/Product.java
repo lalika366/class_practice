@@ -1,5 +1,8 @@
 package com.westminster.class_practice.demo.productapi;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
+
 public class Product {
     private int id;
     private String name;
@@ -18,7 +21,9 @@ public class Product {
         this.price = price;
     }
 
+    @JsonCreator
     public Product() {
+        this(0, null, 0, false, 0.0);
     }
 
     public double calculateTotal() {
@@ -38,11 +43,11 @@ public class Product {
         return this.name;
     }
 
-    public boolean getinStock() {
+    public boolean getInStock() {
         return this.inStock;
     }
 
-    public double getprice() {
+    public double getPrice() {
         return this.price;
     }
 
@@ -62,7 +67,7 @@ public class Product {
         this.inStock = inStock;
     }
 
-    public void setUnitPrice(double price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
