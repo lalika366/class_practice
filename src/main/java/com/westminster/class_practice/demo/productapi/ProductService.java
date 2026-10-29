@@ -29,12 +29,26 @@ public class ProductService {
     }
 
     public Product addProduct(Product product) {
+        DigitalProduct dp = new DigitalProduct(112,
+                "Digital Product",
+                2,
+                true,
+                34.99,
+                "http://xsdfa.com/file/3434",
+                23.33);
+
         product.setId(nextId++);
         products.add(product);
         return product;
     }
 
     public List<Product> addGetInheritedProduct() {
+        Product p = new Product(133,
+                "Base Product",
+                10,
+                true,
+                10.99);
+
         DigitalProduct dp = new DigitalProduct(112,
                 "Digital Product",
                 2,
@@ -49,6 +63,7 @@ public class ProductService {
                 11.99,
                 3.09,
                 "20x10");
+        products.add(p);
         products.add(dp);
         products.add(physicalProduct);
         return this.products;

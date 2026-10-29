@@ -12,6 +12,8 @@ public class Product {
 
     private static int instanceCount = 0;
 
+
+
     public Product(int id, String name, int qty, boolean inStock, double price){
         instanceCount++;
         this.id = id;
@@ -73,6 +75,14 @@ public class Product {
 
     public static int getInstanceCount() {
         return instanceCount;
+    }
+
+    public String onFulfillOrder() {
+        return "order fulfilled";
+    }
+
+    public String getSummary() {
+        return name + " — £" + price;
     }
 
 }

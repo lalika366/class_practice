@@ -24,4 +24,10 @@ public class PhysicalProduct extends Product {
     }
 
 
+    @Override
+    public String getSummary() {
+        return "Physical: " + getName()
+                + " | " + weightKg + "kg";
+    }
+
 }
