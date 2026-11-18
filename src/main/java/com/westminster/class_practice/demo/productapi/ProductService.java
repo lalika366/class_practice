@@ -17,8 +17,11 @@ public class ProductService {
         return products;
     }
 
-    public Optional<Product> getProductById(int id) {
-        return products.stream().filter(p -> p.getId() == id).findFirst();
+    public Product getProductById(int id) {
+        return products.stream()
+                .filter(p -> p.getId() == id)
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Product not found"));
     }
 
     public List<Product> findByName(String name) {
@@ -72,6 +75,7 @@ public class ProductService {
     public void deleteProduct(int id) {
         products.removeIf(p -> p.getId() == id);
     }
+
 
 
 }
